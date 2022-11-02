@@ -13,10 +13,10 @@ const Footer = () => {
               <Link href="/test/jobs">Find Jobs</Link>
             </li>
             <li>
-              <Link href="/test/careers">Careers</Link>
+              <Link href="/careers">Careers</Link>
             </li>
             <li>
-              <Link href="/test/post-job">Post job</Link>
+              <Link href="/post-job">Post job</Link>
             </li>
           </ul>
         </div>

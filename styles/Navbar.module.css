@@ -41,7 +41,7 @@
   background-color: white;
   height: 4px;
   width: 30px;
-  transition: all 1s ease;
+  transition: all 0.2s ease;
   margin-bottom: 5px;
 }
 
@@ -57,10 +57,11 @@
   height: 4px;
   width: 30px;
   transform-origin: left;
-  transition: all 1s ease;
+  transition: all 0.2s ease;
   margin-bottom: 8px;
 }
 
+/* Animation for the menu icon when it's open */
 .activeMenuIcon span:first-child {
   transform: rotate(45deg);
   background-color: #fff;
@@ -73,6 +74,28 @@
 .activeMenuIcon span:last-child {
   transform: rotate(-45deg);
   background-color: #fff;
+}
+
+.mobileMenuList {
+  display: none;
+  width: 100%;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  background-color: rgb(46, 46, 46);
+  transition: all 1s ease;
+}
+
+.mobileMenuList ul {
+  list-style-type: none;
+  color: white;
+  padding: 2%;
+}
+
+.mobileMenuList ul li {
+  list-style-type: none;
+  color: white;
+  margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 460px) {
@@ -95,6 +118,10 @@
   }
 
   .mobileLinks {
+    display: block;
+  }
+
+  .mobileMenuList {
     display: block;
   }
 }
