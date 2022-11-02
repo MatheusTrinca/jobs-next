@@ -36,3 +36,15 @@
     grid-template-columns: auto;
   }
 }
+
+@media screen and (max-width: 490px) {
+  .filterBy {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.2rem;
+  }
+  .filterInput {
+    width: 100%;
+    margin-left: 0;
+  }
+}
