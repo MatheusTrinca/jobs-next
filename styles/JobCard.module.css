@@ -1,0 +1,32 @@
+.container {
+  height: 18rem;
+  border: 1px solid #ccc;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 4px;
+  padding: 1.4rem;
+}
+
+.title {
+  color: rgb(46, 46, 46);
+  font-size: 1.2rem;
+}
+
+.companyName {
+  margin: 0.2rem 0;
+  font-size: 0.8rem;
+}
+
+.description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  color: rgb(100, 100, 100);
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+}
+
+.date {
+  font-size: 0.8rem;
+  margin-top: 2rem;
+}
