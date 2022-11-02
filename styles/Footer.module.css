@@ -1,5 +1,4 @@
 .footer {
-  width: '100%';
   background-color: rgb(46, 46, 46);
 }
 
@@ -41,5 +40,13 @@
   }
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 476px) {
+  .contactContainer {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .container {
+    justify-content: space-around;
+  }
 }
