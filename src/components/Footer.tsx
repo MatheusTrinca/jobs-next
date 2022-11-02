@@ -15,9 +15,6 @@ const Footer = () => {
             <li>
               <Link href="/careers">Careers</Link>
             </li>
-            <li>
-              <Link href="/post-job">Post job</Link>
-            </li>
           </ul>
         </div>
         <div className={styles.contactContainer}>

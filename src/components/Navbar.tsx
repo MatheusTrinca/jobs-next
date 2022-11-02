@@ -35,14 +35,6 @@ const Navbar = () => {
                 Careers
               </Link>
             </li>
-            <li>
-              <Link
-                href="/post-job"
-                className={router.pathname === '/post-job' ? styles.active : ''}
-              >
-                Post job
-              </Link>
-            </li>
           </ul>
         </div>
         <div
@@ -64,9 +56,6 @@ const Navbar = () => {
             </li>
             <li>
               <Link href="/careers">Careers</Link>
-            </li>
-            <li>
-              <Link href="/post-job">Post job</Link>
             </li>
           </ul>
         </div>

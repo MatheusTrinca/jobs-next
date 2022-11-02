@@ -1,12 +1,11 @@
 import Head from 'next/head';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../../../components/Footer';
 import Navbar from '../../../components/Navbar';
 import styles from '../../../../styles/Jobs.module.css';
 import { GetServerSideProps } from 'next';
-import FilterButton from '../../../components/FilterButton';
+import OutlinedButton from '../../../components/OutlinedButton';
 import JobCard from '../../../components/JobCard';
-import { EventEmitter } from 'stream';
 
 export interface Job {
   jobId: string;
@@ -22,29 +21,48 @@ export interface JobProps {
 }
 
 const Jobs: React.FC<JobProps> = ({ jobs }) => {
-  // Slice method to bring only the 10 first at the first render
-  const [selectedJobs, setSelectedJobs] = useState<Job[]>(jobs.slice(0, 10));
+  const [selectedJobs, setSelectedJobs] = useState<Job[]>([]);
 
-  // Filtering function by query parameter (company or last 7 days)
-  const filter = (query: string) => {
-    if (query === 'company') {
+  const [companyName, setCompanyName] = useState('');
+
+  // Filtering function by query parameter (company from now)
+  const sort = (sortBy: string) => {
+    console.log('aqui');
+    if (sortBy === 'company') {
       setSelectedJobs(
         jobs.sort((a, b) => (a.companyName < b.companyName ? -1 : 1))
-      );
-    } else {
-      const last7Days = new Date().getTime() - 7 * 24 * 60 * 60 * 1000;
-
-      setSelectedJobs(
-        jobs
-          // Filtering by last 7 days
-          .filter(job => last7Days < new Date(job.postingDate).getTime())
-          // Sorting, the filtered by last 7 days, by newest
-          .sort((a, b) => (a.postingDate > b.postingDate ? -1 : 1))
       );
     }
   };
 
-  console.log(selectedJobs);
+  const filterByDate = (days: number) => {
+    const lastDays = new Date().getTime() - days * 24 * 60 * 60 * 1000;
+    setSelectedJobs(prevState =>
+      prevState
+        // Filtering by last 7 days
+        .filter(job => lastDays < new Date(job.postingDate).getTime())
+        // Sorting, the filtered by last 7 days, by newest
+        .sort((a, b) => (a.postingDate > b.postingDate ? -1 : 1))
+    );
+  };
+
+  useEffect(() => {
+    // it will only fire the filter if something was typed in the search input
+    if (companyName) {
+      setSelectedJobs(jobs =>
+        jobs.filter(job => job.companyName.toLowerCase().includes(companyName))
+      );
+    } else {
+      // This will load the jobs in the inital render and if the search input was cleaned
+      setSelectedJobs(jobs);
+    }
+    // Passing on dependency array to re-run at every input
+  }, [companyName]);
+
+  const handleClear = () => {
+    setCompanyName('');
+    setSelectedJobs(jobs);
+  };
 
   return (
     <>
@@ -56,11 +74,26 @@ const Jobs: React.FC<JobProps> = ({ jobs }) => {
       <Navbar />
       <main className={styles.main}>
         <div className={styles.filterContainer}>
-          <span>Filter by: </span>
-          <FilterButton onClick={() => filter('company')}>Company</FilterButton>
-          <FilterButton onClick={() => filter('last7days')}>
-            Last 7 days
-          </FilterButton>
+          <div className={styles.filterBy}>
+            <span>Filter by: </span>
+            <input
+              className={styles.filterInput}
+              placeholder="Company name"
+              type="text"
+              value={companyName}
+              onChange={e => setCompanyName(e.target.value.toLowerCase())}
+            />
+            <OutlinedButton onClick={() => filterByDate(7)}>
+              Last 7 days
+            </OutlinedButton>
+          </div>
+          <div className={styles.sortBy}>
+            <span>Sort by: </span>
+            <OutlinedButton onClick={() => sort('company')}>
+              Company
+            </OutlinedButton>
+            <OutlinedButton onClick={handleClear}>Clear All</OutlinedButton>
+          </div>
         </div>
         <div className={styles.jobsContainer}>
           {selectedJobs &&
@@ -92,7 +125,9 @@ export const getServerSideProps: GetServerSideProps<JobProps> = async () => {
       fetchJobDesc: true,
       jobTitle: 'Business Analyst',
       locations: [],
-      numJobs: 20,
+      // I changed this property to 10 as mentioned in the directions, only the first 10 jobs.
+      // But i could have made a slice(0,10), letting 20 in this case
+      numJobs: 10,
       previousListingHashes: [],
     }),
   });
