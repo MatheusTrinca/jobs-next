@@ -85,9 +85,7 @@ const Jobs: React.FC<JobProps> = ({ jobs }) => {
         <div className={styles.jobsContainer}>
           {selectedJobs &&
             selectedJobs.map((job: Job) => (
-              <div key={job.jobId}>
-                <JobCard {...job} />
-              </div>
+              <JobCard {...job} key={job.jobId} />
             ))}
         </div>
       </main>
