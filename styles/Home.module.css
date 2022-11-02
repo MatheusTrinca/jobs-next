@@ -2,5 +2,42 @@
   padding: 0 2%;
 }
 
-main {
+.header {
+  background-color: rgb(70, 181, 255);
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header h2 {
+  margin: 0;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  display: block;
+}
+
+.header span {
+  color: white;
+  opacity: 0.7;
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-top: 8px;
+}
+
+.header a {
+  color: white;
+  padding: 10px;
+  background-color: rgb(46, 46, 46);
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: all 0.2s ease;
+}
+
+.header a:hover {
+  background-color: rgb(29, 29, 29);
 }
