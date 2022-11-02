@@ -12,7 +12,7 @@ const PostJob = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main>
+      <main style={{ height: '100vh' }}>
         <h1>Post Job Page Content</h1>
       </main>
       <Footer />
