@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
-import styles from '../../../styles/Careers.module.css';
+import styles from '../../styles/Careers.module.css';
 import PlainButton from '../../components/PlainButton';
 
 const Careers = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/PlainButton.module.css';
+import styles from '../styles/PlainButton.module.css';
 
 interface IProps {
   title: string;
@@ -19,7 +19,3 @@ const PlainButton: React.FC<IProps> = ({ title, isActive, ...props }) => {
 };
 
 export default PlainButton;
-
-// Arrumar o Responsivo do Footer
-// Arrumar o Responsivo do Careens
-// Fazer Post Job

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Job } from '../pages/test/jobs';
-import styles from '../../styles/JobCard.module.css';
+import styles from '../styles/JobCard.module.css';
 
 const JobCard = ({
   jobTitle,

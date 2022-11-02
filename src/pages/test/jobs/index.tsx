@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import Footer from '../../../components/Footer';
 import Navbar from '../../../components/Navbar';
-import styles from '../../../../styles/Jobs.module.css';
+import styles from '../../../styles/Jobs.module.css';
 import { GetServerSideProps } from 'next';
 import OutlinedButton from '../../../components/OutlinedButton';
 import JobCard from '../../../components/JobCard';

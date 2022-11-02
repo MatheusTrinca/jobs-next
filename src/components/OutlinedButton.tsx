@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/OutlinedButton.module.css';
+import styles from '../styles/OutlinedButton.module.css';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 

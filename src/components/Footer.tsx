@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import React from 'react';
-import styles from '../../styles/Footer.module.css';
+import styles from '../styles/Footer.module.css';
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <h2 className={styles.logo}>Jobs</h2>
+        <Link href="/">
+          <h2 className={styles.logo}>Jobs</h2>
+        </Link>
         <div className={styles.footerLinks}>
           <ul>
             <li>
